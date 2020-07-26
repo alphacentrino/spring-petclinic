@@ -10,7 +10,7 @@ pipeline {
             }
         }
         stage('Build') {
-        agent {docker 'maven:3.5-jdk-8-alpine'}
+        agent {docker 'maven:3.5-alpine'}
             steps {
 
                 sh 'mvn clean package'
