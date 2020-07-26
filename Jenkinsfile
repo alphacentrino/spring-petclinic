@@ -1,13 +1,15 @@
 pipeline {
-    agent {docker 'maven:3.5-alpine'}
+
 
     stages {
+        agent {docker 'alpine/git'}
         stage('Checkout') {
             steps {
                 git 'https://github.com/alphacentrino/spring-petclinic.git'
             }
         }
         stage('Build') {
+        agent {docker 'maven:3.5-jdk-8-alpine'}
             steps {
 
                 sh 'mvn clean package'
