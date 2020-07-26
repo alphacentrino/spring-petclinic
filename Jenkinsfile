@@ -2,8 +2,9 @@ pipeline {
 
 
     stages {
-        agent {docker 'alpine/git'}
+        
         stage('Checkout') {
+            agent {docker 'alpine/git'}
             steps {
                 git 'https://github.com/alphacentrino/spring-petclinic.git'
             }
